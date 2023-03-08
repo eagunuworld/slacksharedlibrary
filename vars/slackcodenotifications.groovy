@@ -13,12 +13,9 @@ def call(String buildStatus = 'STARTED') {
   color = '#ec2805'
   emoji = ':hulk:'
  }
+ def msg = "${buildStatus}: `${env.JOB_NAME}` #${env.BUILD_NUMBER}:\n${env.BUILD_URL}"
 
-// def msg = "${buildStatus}: `${env.JOB_NAME}` #${env.BUILD_NUMBER}:\n${env.BUILD_URL}"
-
-// slackSend(color: color, message: msg)
-
- attachments = [
+ def attachments = [
     [
       "color": color,
       "blocks": [
@@ -58,11 +55,11 @@ def call(String buildStatus = 'STARTED') {
             "type": "button",
             "text": [
               "type": "plain_text",
-              "text": "Jenkins Build URL",
+              "text": "BrowseJenkinsBuild",
               "emoji": true
             ],
             "value": "click_me_123",
-            "url": "${env.BUILD_URL}",
+            "url": "${env.jenkinsURL}:8080",
             "action_id": "button-action"
           ]
         ],
@@ -78,31 +75,30 @@ def call(String buildStatus = 'STARTED') {
             ],
             [
               "type": "mrkdwn",
-              "text": "*Node Port*\n32564"
+              "text": "*Node Port*\n30000"
             ]
           ], 
           "accessory": [
             "type": "image",
             "image_url": "https://raw.githubusercontent.com/sidd-harth/kubernetes-devops-security/main/slack-emojis/k8s.png",
             "alt_text": "Kubernetes Icon"
-          ],
+          ]
         ],
-
         [
           "type": "section",
           "text": [
               "type": "mrkdwn",
-              "text": "*Kubernetes Node: * `controlplane`"
+              "text": "*Kubernetes Node: * `mss-node01`"
             ],
           "accessory": [
             "type": "button",
             "text": [
               "type": "plain_text",
-              "text": "Application URL",
+              "text": "BrowseApplication",
               "emoji": true
             ],
             "value": "click_me_123",
-            "url": "${applicationURL}:32564",
+            "url": "${env.serverURL}:30000",
             "action_id": "button-action"
           ]
         ],
@@ -114,11 +110,11 @@ def call(String buildStatus = 'STARTED') {
           "fields": [
             [
               "type": "mrkdwn",
-              "text": "*Git Commit:*\n${GIT_COMMIT}"
+              "text": "*CommitID:*\n${env.sha_value}"
             ],
             [
               "type": "mrkdwn",
-              "text": "*GIT Previous Success Commit:*\n${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"
+              "text": "*Job_Tag:*\n${env.BUILD_TAG}"
             ]
           ], 
           "accessory": [
@@ -145,10 +141,10 @@ def call(String buildStatus = 'STARTED') {
             "action_id": "button-action"
           ]
         ]
+          ]
+        ]
       ]
-    ]
-  ]
-
- slackSend(iconEmoji: emoji, attachments: attachments)
+ 
+slackSend(iconEmoji: emoji, attachments: attachments)
 
 }
