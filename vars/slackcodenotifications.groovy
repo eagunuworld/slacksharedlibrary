@@ -23,7 +23,7 @@ def call(String buildStatus = 'STARTED') {
           "type": "header",
           "text": [
             "type": "plain_text",
-            "text": "K8S Deployment - ${deploymentName} Pipeline  ${env.emoji}",
+            "text": "Deployment - ${deploymentName} Pipeline  ${env.emoji}",
             "emoji": true
           ]
         ],
@@ -71,7 +71,7 @@ def call(String buildStatus = 'STARTED') {
           "fields": [
             [
               "type": "mrkdwn",
-              "text": "*Kubernetes Deployment Name:*\n${deploymentName}"
+              "text": "*LivePod:*\n${deploymentName}"
             ],
             [
               "type": "mrkdwn",
