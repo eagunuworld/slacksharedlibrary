@@ -55,11 +55,11 @@ def call(String buildStatus = 'STARTED') {
             "type": "button",
             "text": [
               "type": "plain_text",
-              "text": "BrowseJenkinsBuild",
+              "text": "LatestBuild",
               "emoji": true
             ],
             "value": "click_me_123",
-            "url": "${env.jenkinsURL}:8080",
+            "url": "${env. BUILD_URL}",
             "action_id": "button-action"
           ]
         ],
