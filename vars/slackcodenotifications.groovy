@@ -110,7 +110,7 @@ def call(String buildStatus = 'STARTED') {
           "fields": [
             [
               "type": "mrkdwn",
-              "text": "*CommitID:*\n${env.sha_value}"
+              "text": "*CommitID:*\n${env.GIT_COMMIT}"
             ],
             [
               "type": "mrkdwn",
@@ -127,7 +127,7 @@ def call(String buildStatus = 'STARTED') {
           "type": "section",
           "text": [
               "type": "mrkdwn",
-              "text": "*Git Branch: * `${GIT_BRANCH}`"
+              "text": "*PreviousCommitID: * `${GIT_PREVIOUS_COMMIT}`"
             ],
           "accessory": [
             "type": "button",
