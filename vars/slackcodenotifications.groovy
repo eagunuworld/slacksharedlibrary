@@ -75,7 +75,7 @@ def call(String buildStatus = 'STARTED') {
             ],
             [
               "type": "mrkdwn",
-              "text": "*Node Port*\n30000"
+             "text": "*Node Port*\n${env.svcPort}"
             ]
           ], 
           "accessory": [
@@ -98,7 +98,7 @@ def call(String buildStatus = 'STARTED') {
               "emoji": true
             ],
             "value": "click_me_123",
-            "url": "${env.serverURL}:30000",
+           "url": "${env.serverURL}:${env.svcPort}",
             "action_id": "button-action"
           ]
         ],
