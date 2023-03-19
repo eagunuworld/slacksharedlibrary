@@ -98,7 +98,7 @@ def call(String buildStatus = 'STARTED') {
               "emoji": true
             ],
             "value": "click_me_123",
-           "url": "${env.mss-node}:${env.svcPort}",
+           "url": "${env.mssNode}:${env.svcPort}",
             "action_id": "button-action"
           ]
         ],
