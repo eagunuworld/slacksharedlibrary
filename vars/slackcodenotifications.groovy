@@ -23,7 +23,7 @@ def call(String buildStatus = 'STARTED') {
           "type": "header",
           "text": [
             "type": "plain_text",
-            "text": "Deployment - ${deploymentName} Pipeline  ${env.emoji}",
+            "text": "Deployment - ${northDeploy} Pipeline  ${env.emoji}",
             "emoji": true
           ]
         ],
@@ -71,7 +71,7 @@ def call(String buildStatus = 'STARTED') {
           "fields": [
             [
               "type": "mrkdwn",
-              "text": "*LivePod:*\n${deploymentName}"
+              "text": "*LivePod:*\n${northDeploy}"
             ],
             [
               "type": "mrkdwn",
