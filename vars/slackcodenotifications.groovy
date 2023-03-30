@@ -23,7 +23,7 @@ def call(String buildStatus = 'STARTED') {
           "type": "header",
           "text": [
             "type": "plain_text",
-            "text": "Deployment - ${northDeploy} Pipeline  ${env.emoji}",
+            "text": "Deployment - ${deploymentName} Pipeline  ${env.emoji}",
             "emoji": true
           ]
         ],
@@ -71,7 +71,7 @@ def call(String buildStatus = 'STARTED') {
           "fields": [
             [
               "type": "mrkdwn",
-              "text": "*LivePod:*\n${northDeploy}"
+              "text": "*LivePod:*\n${deploymentName}"
             ],
             [
               "type": "mrkdwn",
@@ -88,7 +88,7 @@ def call(String buildStatus = 'STARTED') {
           "type": "section",
           "text": [
               "type": "mrkdwn",
-              "text": "*Kubernetes Node: * `mss-node01`"
+              "text": "*Kubernetes Node: * `mssNode01`"
             ],
           "accessory": [
             "type": "button",
@@ -105,9 +105,9 @@ def call(String buildStatus = 'STARTED') {
         [
           "type": "divider"
         ]
-         ]
-       ]
-     ]
+          ]
+        ]
+      ]
  
 slackSend(iconEmoji: emoji, attachments: attachments)
 
