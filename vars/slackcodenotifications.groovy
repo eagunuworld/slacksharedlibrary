@@ -83,6 +83,27 @@ def call(String buildStatus = 'STARTED') {
             "image_url": "https://raw.githubusercontent.com/sidd-harth/kubernetes-devops-security/main/slack-emojis/k8s.png",
             "alt_text": "Kubernetes Icon"
           ]
+        ],
+        [
+          "type": "section",
+          "text": [
+              "type": "mrkdwn",
+              "text": "*Kubernetes Node: * `mss-node01`"
+            ],
+          "accessory": [
+            "type": "button",
+            "text": [
+              "type": "plain_text",
+              "text": "BrowseApplication",
+              "emoji": true
+            ],
+            "value": "click_me_123",
+           "url": "${env.mss-node}:${env.svcPort}",
+            "action_id": "button-action"
+          ]
+        ],
+        [
+          "type": "divider"
         ]
           ]
         ]
