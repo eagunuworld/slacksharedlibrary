@@ -88,7 +88,7 @@ def call(String buildStatus = 'STARTED') {
           "type": "section",
           "text": [
               "type": "mrkdwn",
-              "text": "*Kubernetes Node: * `mssNode01`"
+              "text": "*Kubernetes Node: * `mss-node01`"
             ],
           "accessory": [
             "type": "button",
