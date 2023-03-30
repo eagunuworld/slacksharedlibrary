@@ -104,28 +104,10 @@ def call(String buildStatus = 'STARTED') {
         ],
         [
           "type": "divider"
-        ],
-        [
-          "type": "section",
-          "fields": [
-            [
-              "type": "mrkdwn",
-              "text": "*CommitID:*\n${env.GIT_COMMIT}"
-            ],
-            [
-              "type": "mrkdwn",
-              "text": "*Job_Tag:*\n${env.BUILD_TAG}"
-            ]
-          ], 
-          "accessory": [
-            "type": "image",
-            "image_url": "https://raw.githubusercontent.com/sidd-harth/kubernetes-devops-security/main/slack-emojis/github.png",
-            "alt_text": "Github Icon"
-           ]
+        ]
          ]
-          ]
        ]
-      ]
+     ]
  
 slackSend(iconEmoji: emoji, attachments: attachments)
 
